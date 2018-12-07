@@ -1,4 +1,4 @@
-package flower_factory;
+package flower_factory.specs;
 
 import lombok.ToString;
 

@@ -1,5 +1,6 @@
 package flower_factory;
 
+import flower_factory.flowers.Flower;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.ArrayList;
@@ -13,24 +14,14 @@ public class FlowerSet {
     private int quantity;
 
     public FlowerSet(Flower flower, int quantity){
-        this.flower = flower;
-        this.quantity = quantity;
-        this.flowers = new ArrayList<Flower>();
-
-//        FlowerCreator g = new FlowerCreator();
-//        for (int i = 0; i < quantity; i++) {
-//            flowers.add(g.createFlower(flower));
-//        }
-        return;
+        if (quantity > 0){
+            this.flower = flower;
+            this.quantity = quantity;
+            this.flowers = new ArrayList<Flower>();
+        }
     }
 
-//    public void  addFlower(Flower new_flower){
-//        if (new_flower.getClass() == flowertype){
-//
-//        }
-//    }
-
-    public float getPrice(){
+    public double getPrice(){
         return flower.getPrice() * quantity;
     }
 }
