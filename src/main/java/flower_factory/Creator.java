@@ -1,6 +1,9 @@
 package flower_factory;
 
+import flower_factory.flowers.Chamomile;
 import flower_factory.flowers.Flower;
+import flower_factory.flowers.Rosie;
+import flower_factory.flowers.Tulip;
 import flower_factory.specs.Color;
 import flower_factory.specs.Country;
 import flower_factory.specs.Smell;
@@ -20,7 +23,7 @@ public class Creator {
     }
 
 
-    public Flower createFlower(){
+    public <T extends Flower> T createFlower(Class<T> type){
         Color flower_color = Color.BLUE;
         switch (rnd.nextInt(3)) {
             case 0: flower_color = Color.RED;
@@ -42,6 +45,13 @@ public class Creator {
         double flower_length = 3 + rnd.nextDouble() * 5;
         double flower_price = 25 + rnd.nextInt() * 10;
 
-        return new Flower(flower_color, flower_smell, flower_origin, flower_length, flower_price);
+        Flower nf = new Chamomile(flower_color, flower_smell, flower_origin, flower_length, flower_price);
+        return type.cast(nf);
+//        if (in_type.equals("cham")){
+//            return new Chamomile(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
+//        else if (in_type.equals("rosie")){
+//            return new Rosie(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
+//        else {
+//            return new Tulip(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
     }
 }

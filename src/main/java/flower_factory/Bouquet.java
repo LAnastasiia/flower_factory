@@ -38,4 +38,10 @@ public class Bouquet {
         }
         return bouquet_price;
     }
+
+    @Override
+    public String toString() {
+        String res_string = new String();
+        return super.toString();
+    }
 }

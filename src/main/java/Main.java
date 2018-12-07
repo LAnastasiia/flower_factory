@@ -3,6 +3,7 @@ import flower_factory.Creator;
 import flower_factory.FlowerSet;
 import flower_factory.database.FlowerDataBase;
 import flower_factory.flowers.Chamomile;
+import flower_factory.flowers.Flower;
 import flower_factory.flowers.Rosie;
 import flower_factory.flowers.Tulip;
 
@@ -14,13 +15,15 @@ public class Main {
         while(true){
             Scanner scanner = new Scanner( System.in );
             System.out.println("Hi dear customer. Welcome to the FlowerShop. \n" +
-                    "Would you like to buy a designed bouquet of flowers or create a custom one? (1, 2)");
+                    "Would you like to get a designed bouquet of flowers or create a custom one? (1 || 2)");
             String input_answer = scanner.nextLine();
 
             if (input_answer.equals("1")){
                 FlowerDataBase db = new FlowerDataBase();
-                Bouquet design_bouquet = db.makeDesignedBouquet();
-                System.out.println("Wonderful. Here is your bouquet order: \n" + design_bouquet.toString());
+                Bouquet b = db.makeDesignedBouquet();
+                System.out.println("Wonderful!");
+                System.out.println("Here is Your bouquet: " + b.toString());
+
             }
 
             else if (input_answer.equals("2")){
@@ -33,24 +36,30 @@ public class Main {
                 // Chamomiles
                 System.out.println("How many Chamomiles do You want in it: ");
                 int number_of_cham_flowers = scanner.nextInt();
-                Chamomile cham_flower = (Chamomile) creator.createFlower();
+                Chamomile cham_flower = creator.createFlower(Chamomile.class);
                 FlowerSet cham_set = creator.createFlowerSet(cham_flower, number_of_cham_flowers);
                 b.addFlowerSet(cham_set);
 
                 // Rosies
                 System.out.println("How many Rosies do You want in it: ");
                 int number_of_rosie_flowers = scanner.nextInt();
-                Rosie rosie_flower = (Rosie) creator.createFlower();
+                Rosie rosie_flower = creator.createFlower(Rosie.class);
                 FlowerSet rosie_set  = creator.createFlowerSet(rosie_flower, number_of_rosie_flowers);
                 b.addFlowerSet(rosie_set);
 
                 // Tulips
                 System.out.println("How many Rosies do You want in it: ");
                 int number_of_tul_flowers = scanner.nextInt();
-                Tulip tul_flower = (Tulip) creator.createFlower();
+                Tulip tul_flower = creator.createFlower(Tulip.class);
                 FlowerSet tul_set  = creator.createFlowerSet(tul_flower, number_of_tul_flowers);
                 b.addFlowerSet(tul_set);
+                System.out.println("Here is Your bouquet: " + b.toString());
             }
+
+            System.out.println("Would You like to order more? [Y/N]");
+            input_answer = scanner.nextLine();
+            if (input_answer.equals("N") || input_answer.equals("n"))
+                { break; }
         }
     }
 
