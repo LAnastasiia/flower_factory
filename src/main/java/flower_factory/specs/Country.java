@@ -1,5 +1,6 @@
 package flower_factory.specs;
 
+import lombok.Getter;
 import lombok.ToString;
 
 
@@ -7,7 +8,7 @@ import lombok.ToString;
 public enum Country {
 
     NE("Nedetlands", 413), PL("Poland", 256), UA("Ukraine", 398);
-
+    @Getter
     private final String full_name;
     private final int country_code;
 

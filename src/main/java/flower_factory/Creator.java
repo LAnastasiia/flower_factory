@@ -45,13 +45,11 @@ public class Creator {
         double flower_length = 3 + rnd.nextDouble() * 5;
         double flower_price = 25 + rnd.nextInt() * 10;
 
-        Flower nf = new Chamomile(flower_color, flower_smell, flower_origin, flower_length, flower_price);
-        return type.cast(nf);
-//        if (in_type.equals("cham")){
-//            return new Chamomile(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
-//        else if (in_type.equals("rosie")){
-//            return new Rosie(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
-//        else {
-//            return new Tulip(flower_color, flower_smell, flower_origin, flower_length, flower_price); }
+        if (type == Chamomile.class){
+            return type.cast(new Chamomile(flower_color, flower_smell, flower_origin, flower_length, flower_price)); }
+        else if (type == Rosie.class){
+            return type.cast(new Rosie(flower_color, flower_smell, flower_origin, flower_length, flower_price)); }
+        else {
+            return type.cast(new Tulip(flower_color, flower_smell, flower_origin, flower_length, flower_price)); }
     }
 }

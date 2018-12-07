@@ -24,4 +24,15 @@ public class Flower {
         this.price = price;
         this.length_of_stem = length;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder res_str = new StringBuilder();
+        res_str.append("color--" + color.getColor_name() + "    ");
+        res_str.append("smell--" + smell.getSmell_name() + "    ");
+        res_str.append("country--" + country_of_origin.getFull_name() + "    ");
+        res_str.append("length--" + Double.toString(length_of_stem) + "    ");
+        res_str.append("price--" + Double.toString(price) + "    ");
+        return res_str.toString();
+    }
 }

@@ -21,7 +21,16 @@ public class FlowerSet {
         }
     }
 
-    public double getPrice(){
-        return flower.getPrice() * quantity;
+    public void addFlower(Flower new_flower){
+        flowers.add(flower);
+        quantity++;
+    }
+
+    public double getPrice(){ return flower.getPrice() * quantity; }
+
+    @Override
+    public String toString() {
+        String res_string = Integer.toString(quantity) + " * " + flower.toString();
+        return res_string;
     }
 }

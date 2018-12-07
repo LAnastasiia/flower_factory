@@ -22,13 +22,13 @@ public class Main {
                 FlowerDataBase db = new FlowerDataBase();
                 Bouquet b = db.makeDesignedBouquet();
                 System.out.println("Wonderful!");
-                System.out.println("Here is Your bouquet: " + b.toString());
+                System.out.println("Here is Your designed bouquet: \n" + b.toString());
 
             }
 
             else if (input_answer.equals("2")){
                 System.out.println("Great. Let's create Your unique bouquet.\n"
-                        + " **{Chamomile - Rosie - Tulip} available");
+                        + " **{Chamomile - Rosie - Tulip} available\n");
 
                 Bouquet b = new Bouquet();
                 Creator creator = new Creator();
@@ -44,6 +44,7 @@ public class Main {
                 System.out.println("How many Rosies do You want in it: ");
                 int number_of_rosie_flowers = scanner.nextInt();
                 Rosie rosie_flower = creator.createFlower(Rosie.class);
+                System.out.println(rosie_flower.toString());
                 FlowerSet rosie_set  = creator.createFlowerSet(rosie_flower, number_of_rosie_flowers);
                 b.addFlowerSet(rosie_set);
 
@@ -53,12 +54,12 @@ public class Main {
                 Tulip tul_flower = creator.createFlower(Tulip.class);
                 FlowerSet tul_set  = creator.createFlowerSet(tul_flower, number_of_tul_flowers);
                 b.addFlowerSet(tul_set);
-                System.out.println("Here is Your bouquet: " + b.toString());
+                System.out.println("Here is Your custom bouquet: \n" + b.toString());
             }
 
-            System.out.println("Would You like to order more? [Y/N]");
-            input_answer = scanner.nextLine();
-            if (input_answer.equals("N") || input_answer.equals("n"))
+            System.out.println("Would You like to order more? [Y/N]\n");
+            String continue_answer = scanner.nextLine();
+            if (continue_answer.equals("N") || continue_answer.equals("n"))
                 { break; }
         }
     }

@@ -41,7 +41,11 @@ public class Bouquet {
 
     @Override
     public String toString() {
-        String res_string = new String();
-        return super.toString();
+        StringBuilder res_string = new StringBuilder();
+        for(FlowerSet fs: flowersets){
+            res_string.append("   " + fs.toString());
+            res_string.append("\n\n");
+        }
+        return res_string.toString();
     }
 }
